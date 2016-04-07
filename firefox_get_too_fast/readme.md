@@ -1,5 +1,4 @@
-#JS get width() and height() of image 0 unexpectedly by using image.height and image.width
-
+# JS get width() and height() of image 0 unexpectedly by using image.height and image.width
 While creating a image object:
 
 ```
@@ -52,3 +51,20 @@ Notice that not only Firefox get this problem, but also Chrome and IE11 do. I tr
 On my own computer, all of the browser turn to be get `0` without `image.onload`. Chrome always gets `0` no matter if the page is cached. IE11 gets random result weirdly.
 
 So be sure when you want to get the information of a image, you should use the event `image.onload`.
+
+--------------------------------------------------------------------------------
+
+## Add in 2016.04.07
+
+If you want to create image by using `var image = new Image()`, it should be done like this:
+
+```
+var image = new Image();
+image.onload = function() {
+    var height = image.height;
+    var width = image.width;
+    ......
+}
+image.src = "apple.jpg";
+```
+Use `image.onload` before `image.src`, or there may be some unexpected problems.

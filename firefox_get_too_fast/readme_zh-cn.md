@@ -52,3 +52,20 @@ image.onload = function() {
 在我自己的电脑上，所有浏览器在没有`image.onload`的情况下都返回`0`。谷歌浏览器即使在页面和图片都缓存了的情况下也返回`0`，而IE11返回`0`或者正确值的情况随机。
 
 所以当你需要获取图片信息时，记得使用事件`image.onload`来保证结果正确。
+
+--------------------------------------------------------------------------------
+
+## Add in 2016.04.07
+
+If you want to create image by using `var image = new Image()`, it should be done like this:
+
+```
+var image = new Image();
+image.onload = function() {
+    var height = image.height;
+    var width = image.width;
+    ......
+}
+image.src = "apple.jpg";
+```
+Use `image.onload` before `image.src`, or there may be some unexpected problems.
