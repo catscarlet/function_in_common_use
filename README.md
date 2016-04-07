@@ -1,2 +1,2 @@
-# function_be_often_used
-function_be_often_used
+# function_in_common_use
+This is a repertory for saving function in common use.
