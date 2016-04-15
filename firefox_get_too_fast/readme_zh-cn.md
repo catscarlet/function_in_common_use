@@ -1,5 +1,4 @@
-#javascript使用image.height和image.width获取图片宽高值为0，获取失败
-
+# javascript使用image.height和image.width获取图片宽高值为0，获取失败
 当我使用javascript创建一个图片对象：
 
 ```
@@ -56,8 +55,7 @@ image.onload = function() {
 --------------------------------------------------------------------------------
 
 ## Add in 2016.04.07
-
-If you want to create image by using `var image = new Image()`, it should be done like this:
+如果你想用 `var image = new Image()` 创建一个图片对象，代码应该这样写：
 
 ```
 var image = new Image();
@@ -68,4 +66,5 @@ image.onload = function() {
 }
 image.src = "apple.jpg";
 ```
-Use `image.onload` before `image.src`, or there may be some unexpected problems.
+
+保证 `image.onload` 定义于 `image.src` 之前，不然可能会有依赖之外的事情发生。
